@@ -8,12 +8,13 @@ import "./App.css";
 
 function App() {
   const [books, setBooks] = useGlobal("books"); // eslint-disable-line no-unused-vars
+  const [mbr, setMBR] = useGlobal("masterBooksRecord"); // eslint-disable-line no-unused-vars
   const [allBooks, setAllBooks] = useGlobal("allBooks"); // eslint-disable-line no-unused-vars
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     try {
-      fetch("https://aimeri-bookshelf.aimeri.now.sh")
+      fetch(".netlify/functions/getBooks")
         .then(response => response.json())
         .then(async data => {
           const booksPromise = await data.map(async book => {
@@ -46,6 +47,7 @@ function App() {
           const augumentedBooks = await Promise.all(booksPromise);
           setBooks(augumentedBooks);
           setAllBooks(augumentedBooks);
+          setMBR(augumentedBooks);
           setLoading(false);
         });
     } catch (error) {

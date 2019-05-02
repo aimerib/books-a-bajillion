@@ -42,21 +42,29 @@ const SearchButton = styled.button`
 
 export default function SortMenu() {
   const [books, setBooks] = useGlobal("books");
+  const [allBooks, setAllBooks] = useGlobal("allBooks");
   const [sort, setSort] = useGlobal("sort"); // eslint-disable-line no-unused-vars
   const [sortOrder, setSortOrder] = useGlobal("sortOrder"); // eslint-disable-line no-unused-vars
 
   function sortBooks() {
-    let sortedBooks;
+    let sortedBooks, sortedAllBooks;
     if (sortOrder === "ascending") {
       sortedBooks = [...books].sort((a, b) =>
         a[sort] < b[sort] ? -1 : a[sort] > b[sort] ? 1 : 0
       );
+      sortedAllBooks = [...allBooks].sort((a, b) =>
+        a[sort] < b[sort] ? -1 : a[sort] > b[sort] ? 1 : 0
+      );
     } else {
-      sortedBooks = books.sort((a, b) =>
+      sortedBooks = [...books].sort((a, b) =>
+        a[sort] > b[sort] ? -1 : a[sort] < b[sort] ? 1 : 0
+      );
+      sortedAllBooks = [...allBooks].sort((a, b) =>
         a[sort] > b[sort] ? -1 : a[sort] < b[sort] ? 1 : 0
       );
     }
     setBooks(sortedBooks);
+    setAllBooks(sortedAllBooks);
   }
 
   return (

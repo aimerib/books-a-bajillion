@@ -62,8 +62,10 @@ const Wraper = styled.div`
 
 export default function SearchBar() {
   const [search, setSearch] = useGlobal("searchTerm");
-  const [books, setBooks] = useGlobal("books");
+  const [books, setBooks] = useGlobal("books"); // eslint-disable-line no-unused-vars
   const [allBooks, setAllBooks] = useGlobal("allBooks"); // eslint-disable-line no-unused-vars
+  const [mbr, setMBR] = useGlobal("masterBooksRecord"); // eslint-disable-line no-unused-vars
+  const [sort, setSort] = useGlobal("sort"); // eslint-disable-line no-unused-vars
 
   function handleChange({ target: { value } }) {
     const regex = new RegExp(value, "gi");
@@ -78,8 +80,10 @@ export default function SearchBar() {
   }
 
   function clearSearch() {
-    setBooks([...allBooks]);
+    setBooks([...mbr]);
+    setAllBooks([...mbr]);
     setSearch("");
+    setSort("");
   }
 
   const classes = useStyles();

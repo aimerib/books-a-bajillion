@@ -7,7 +7,7 @@ import { useGlobal } from "reactn";
 
 const Wraper = styled.div`
   margin-left: 20px;
-  grid-area: Avatar;
+  grid-area: Sort;
   @media (min-width: 1190px) {
     display: inline-grid;
     justify-self: start;

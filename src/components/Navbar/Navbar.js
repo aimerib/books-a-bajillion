@@ -17,8 +17,8 @@ const Wraper = styled.div`
   grid-template-columns: 100%;
   grid-template-rows: auto;
   grid-template-areas:
-    "Avatar"
-    "Name";
+    "Sort"
+    "Search";
 
   @media (min-width: 1190px) {
     display: flex;

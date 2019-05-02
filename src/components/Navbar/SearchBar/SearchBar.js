@@ -52,7 +52,7 @@ const ClearButton = styled.button`
   }
 `;
 const Wraper = styled.div`
-  grid-area: Name;
+  grid-area: Search;
   right: 20px;
 
   @media (min-width: 1190px) {

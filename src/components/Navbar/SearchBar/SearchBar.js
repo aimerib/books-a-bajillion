@@ -64,26 +64,22 @@ export default function SearchBar() {
   const [search, setSearch] = useGlobal("searchTerm");
   const [books, setBooks] = useGlobal("books");
   const [allBooks, setAllBooks] = useGlobal("allBooks"); // eslint-disable-line no-unused-vars
-  const [state, setState] = useGlobal(); // eslint-disable-line no-unused-vars
-  function handleChange({ target: { value } }) {
-    setSearch(value);
-  }
 
-  function performSearch(SearchText) {
-    const regex = new RegExp(SearchText, "gi");
-    const searchResults = books
+  function handleChange({ target: { value } }) {
+    const regex = new RegExp(value, "gi");
+    const searchResults = allBooks
       .map(book => {
         const match = book.title.match(regex);
         return !match ? null : book;
       })
       .filter(book => !!book);
     setBooks(searchResults);
+    setSearch(value);
   }
 
   function clearSearch() {
-    setBooks(allBooks);
+    setBooks([...allBooks]);
     setSearch("");
-    console.log(state);
   }
 
   const classes = useStyles();
@@ -103,7 +99,6 @@ export default function SearchBar() {
         onChange={handleChange}
         value={search}
       />
-      <SearchButton onClick={() => performSearch(search)}>Search</SearchButton>
       <SearchButton onClick={() => clearSearch()}>Clear</SearchButton>
     </Wraper>
   );

@@ -45,6 +45,7 @@ function App() {
           });
           const augumentedBooks = await Promise.all(booksPromise);
           setBooks(augumentedBooks);
+          setAllBooks(augumentedBooks);
           setLoading(false);
         });
     } catch (error) {

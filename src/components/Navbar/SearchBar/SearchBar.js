@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   }
 });
 
-const SearchButton = styled.button`
+const ClearButton = styled.button`
   background-color: rgba(0, 0, 0, 0);
   color: ${primaryColor};
   font-size: 2em;
@@ -103,7 +103,7 @@ export default function SearchBar() {
         onChange={handleChange}
         value={search}
       />
-      <SearchButton onClick={() => clearSearch()}>Clear</SearchButton>
+      <ClearButton onClick={() => clearSearch()}>Clear</ClearButton>
     </Wraper>
   );
 }

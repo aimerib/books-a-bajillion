@@ -12,12 +12,7 @@ body {
 
   /* required rules to fix a background positioning issue with Material UI */
   position: absolute;
-  left: -17px;
-  right: -17px;
-  padding-top: 0;
-  padding-right: 17px;
-  padding-left: 17px;
-  padding-bottom: 0px;
+
   overflow-x: hidden;
   overflow-y: auto !important;
 }

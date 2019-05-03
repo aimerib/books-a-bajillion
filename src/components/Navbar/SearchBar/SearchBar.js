@@ -53,10 +53,10 @@ const ClearButton = styled.button`
 `;
 const Wraper = styled.div`
   grid-area: Search;
-  right: 20px;
-
+  transform: translateX(10px);
   @media (min-width: 1190px) {
     position: absolute;
+    right: 30px;
   }
 `;
 

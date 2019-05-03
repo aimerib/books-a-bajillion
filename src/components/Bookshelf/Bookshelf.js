@@ -4,7 +4,8 @@ import Book from "./Book";
 import styled from "styled-components";
 
 const Wraper = styled.div`
-  margin: 20px 40px 20px 20px;
+  transform: translateX(-17px);
+  margin: 20px 20px 20px 37px;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto;

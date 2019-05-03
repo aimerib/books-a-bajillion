@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   margin-bottom: 50px;
   min-width: 300px;
   width: 100vw;
+  top: 0px;
 `;
 
 const NavBar = styled.div`

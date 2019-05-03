@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   top: 0;
   z-index: 3;
   margin-bottom: 50px;
+  min-width: 300px;
 `;
 
 const NavBar = styled.div`
@@ -23,7 +24,7 @@ const NavBar = styled.div`
   grid-template-areas:
     "Sort"
     "Search";
-
+  min-width: 300px;
   @media (min-width: 1190px) {
     display: flex;
     align-items: center;
@@ -31,14 +32,16 @@ const NavBar = styled.div`
 `;
 
 const NavbarOpenCloseButton = styled.button`
+  display: none;
   @media (max-width: 1190px) {
+    display: block;
     height: 50px;
     width: 50px;
     background-color: purple;
     border-radius: 0 0 50% 50%;
     position: absolute;
     left: 50%;
-    transform: translateX(calc(-50% - 10px));
+    transform: translateX(calc(-50% - 9px));
     border: none;
     cursor: pointer;
   }

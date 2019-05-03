@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     try {
-      fetch(".netlify/functions/getBooks")
+      fetch("https://aimeri-bookshelf.aimeri.now.sh")
         .then(response => response.json())
         .then(async data => {
           const booksPromise = await data.map(async book => {
@@ -25,7 +25,9 @@ function App() {
             let bookDetailsJSON = await fetch(
               `https://www.googleapis.com/books/v1/volumes?q=${
                 book.title
-              }&maxResults=1&key=${googleBooksAPIKey}`
+              }&maxResults=1${
+                googleBooksAPIKey ? "&key=" + googleBooksAPIKey : ""
+              }`
             );
             let bookDetails = await bookDetailsJSON.json();
             if (book.isbn && bookDetails.items) {

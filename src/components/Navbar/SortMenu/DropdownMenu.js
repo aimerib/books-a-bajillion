@@ -11,7 +11,6 @@ import { primaryColor } from "../../../constants";
 
 const useStyles = makeStyles({
   formControl: {
-    margin: 10,
     minWidth: 275,
     color: primaryColor
   },

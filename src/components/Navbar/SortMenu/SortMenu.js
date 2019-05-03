@@ -6,15 +6,15 @@ import { primaryColor } from "../../../constants";
 import { useGlobal } from "reactn";
 
 const Wraper = styled.div`
-  margin-left: 20px;
   grid-area: Sort;
   @media (min-width: 1190px) {
     display: inline-grid;
     justify-self: start;
+    margin-left: 30px;
   }
 `;
 
-const SearchButton = styled.button`
+const SortButton = styled.button`
   background-color: rgba(0, 0, 0, 0);
   color: ${primaryColor};
   font-size: 1em;
@@ -24,7 +24,7 @@ const SearchButton = styled.button`
   border-radius: 3px;
   cursor: pointer;
   transition: linear 100ms;
-  width: 92%;
+  width: 95%;
   margin-bottom: 10px;
   &:hover {
     background: ${primaryColor};
@@ -71,7 +71,7 @@ export default function SortMenu() {
     <Wraper>
       <DropdownMenu />
       <RadioMenu />
-      <SearchButton onClick={sortBooks}>Sort</SearchButton>
+      <SortButton onClick={sortBooks}>Sort</SortButton>
     </Wraper>
   );
 }

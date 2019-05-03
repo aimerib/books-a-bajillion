@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 import SortMenu from "./SortMenu";
 import SearchBar from "./SearchBar";
 import styled from "styled-components";
 
-const Wraper = styled.div`
+const Wrapper = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  margin-bottom: 50px;
+`;
+
+const NavBar = styled.div`
   background-color: #f9f6f6;
   width: 100vw;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.45);
-  z-index: 3;
-  position: sticky;
-  top: 0;
   display: grid;
   justify-items: center;
   grid-gap: 15px;
@@ -26,11 +30,29 @@ const Wraper = styled.div`
   }
 `;
 
+const NavbarOpenCloseButton = styled.button`
+  @media (max-width: 1190px) {
+    height: 50px;
+    width: 50px;
+    background-color: purple;
+    border-radius: 0 0 50% 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(calc(-50% - 10px));
+    border: none;
+    cursor: pointer;
+  }
+`;
+
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <Wraper>
-      <SortMenu />
-      <SearchBar />
-    </Wraper>
+    <Wrapper>
+      <NavBar isOpen={isOpen}>
+        <SortMenu />
+        <SearchBar />
+      </NavBar>
+      <NavbarOpenCloseButton />
+    </Wrapper>
   );
 }

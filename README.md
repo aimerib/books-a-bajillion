@@ -24,7 +24,7 @@ For this project, I am fetching a list of books from one endpoint, and then augm
 
 ## Utilizing serverless functions
 
-I went with Netlify's serverless functions. There are plenty of options out there, but I just wanted a quick endpoint that would spit back a json file with the data I needed to continue working on the Front End. This was my first foray into the world of serverless functions, but the experience was pretty seamless so I will probably incorporate more of this kind of workflow in future projects.
+I went with Zeit's serverless functions. There are plenty of options out there, but I just wanted a quick endpoint that would spit back a json file with the data I needed to continue working on the Front End. This was my first foray into the world of serverless functions, but the experience was pretty seamless so I will probably incorporate more of this kind of workflow in future projects.
 
 ## Utilizing React Hooks for lifecycle and state management
 

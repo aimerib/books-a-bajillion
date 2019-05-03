@@ -43,6 +43,10 @@ function App() {
               url = bookDetails.items[0].volumeInfo.previewLink
                 ? bookDetails.items[0].volumeInfo.previewLink
                 : url;
+
+              if (description.length > 380) {
+                description = description.slice(0, 380) + "...";
+              }
             }
             return { ...book, description, rating, cover, url };
           });

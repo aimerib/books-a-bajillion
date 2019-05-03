@@ -118,27 +118,12 @@ const Description = styled.div`
   margin-right: 1em;
   padding-right: 1em;
   padding-left: 1em;
-  &:before {
-    content: "...";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding-right: -1em;
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 1em;
-    height: 1em;
-    margin-top: 0.2em;
-    background: white;
-  }
+  font-size: small;
 `;
 
 const ReadMore = styled.button`
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   transform: translateX(50%);
   right: 50%;
   background-color: rgba(0, 0, 0, 0);
@@ -185,7 +170,6 @@ export default function Book({
           <p style={{ lineHeight: 1, paddingLeft: "1em" }}>Author: {author}</p>
           <p
             style={{
-              lineHeight: 0.5,
               fontWeight: "normal",
               fontSize: "small",
               paddingLeft: "1em"

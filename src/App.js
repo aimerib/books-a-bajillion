@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useGlobal } from "reactn";
 import Bookshelf from "./components/Bookshelf";
 import Navbar from "./components/Navbar";
+import Loading from "./components/Loading";
 import { googleBooksAPIKey } from "./constants";
 
 import "./App.css";
@@ -44,7 +45,7 @@ function App() {
                 ? bookDetails.items[0].volumeInfo.previewLink
                 : url;
 
-              if (description.length > 380) {
+              if (description && description.length > 380) {
                 description = description.slice(0, 380) + "...";
               }
             }
@@ -62,7 +63,7 @@ function App() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (isLoading) {
-    return <p>Loading</p>;
+    return <Loading />;
   } else {
     return (
       <div className="App">

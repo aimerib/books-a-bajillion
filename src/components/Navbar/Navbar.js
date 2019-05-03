@@ -4,12 +4,16 @@ import SortMenu from "./SortMenu";
 import SearchBar from "./SearchBar";
 import styled from "styled-components";
 
+import upArrow from "../../assets/arrow-up.svg";
+import downArrow from "../../assets/arrow-down.svg";
+
 const Wrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 3;
   margin-bottom: 50px;
   min-width: 300px;
+  width: 100vw;
 `;
 
 const NavBar = styled.div`
@@ -25,6 +29,12 @@ const NavBar = styled.div`
     "Sort"
     "Search";
   min-width: 300px;
+  @media (max-width: 1190px) {
+    top: ${props => (props.isOpen ? "0px" : "-290px")};
+    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  }
+  top: -290px;
+  position: absolute;
   @media (min-width: 1190px) {
     display: flex;
     align-items: center;
@@ -44,18 +54,28 @@ const NavbarOpenCloseButton = styled.button`
     transform: translateX(calc(-50% - 9px));
     border: none;
     cursor: pointer;
+    margin-top: ${props => (props.isOpen ? "290px" : "0px")};
+    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    &:after {
+      content: url(${props => (props.isOpen ? upArrow : downArrow)});
+    }
   }
 `;
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  function toggleNavbar() {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <Wrapper>
       <NavBar isOpen={isOpen}>
         <SortMenu />
         <SearchBar />
       </NavBar>
-      <NavbarOpenCloseButton />
+      <NavbarOpenCloseButton onClick={toggleNavbar} isOpen={isOpen} />
     </Wrapper>
   );
 }

@@ -113,7 +113,6 @@ const Description = styled.div`
   overflow: hidden;
   position: relative;
   line-height: 1em;
-  max-height: 14em;
   text-align: justify;
   margin-right: 1em;
   padding-right: 1em;
